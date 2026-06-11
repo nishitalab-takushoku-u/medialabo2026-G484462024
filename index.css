@@ -1,0 +1,17 @@
+body{
+    color:white;
+    background-color:rgb(37, 114, 37);
+    border:solid rgb(232, 130, 4);
+}
+h1{
+    color:white;
+    background-color:rgb(232, 130, 4);
+    width:500px;
+    font-family:cursive;
+    border-bottom:solid white;
+}
+h2{
+    font-style:italic;
+    border:solid grey;
+    display:inline;
+}
