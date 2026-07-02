@@ -23,7 +23,7 @@ h2 {
 div#zentai {
 	display: grid;
 	grid-template-rows:200px 200px;
-	grid-template-columns: 500px 500px;
+	grid-template-columns:1fr 1fr;
 	gap:10px;
 }
 

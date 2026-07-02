@@ -13,7 +13,41 @@ function print(data) {
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  const result = document.createElement("div");
+  result.id = "result";
 
+  document.body.appendChild(result);
+
+  for (let shop of data.results.shop) {
+
+    const container=document.createElement("div");
+
+    const name=document.createElement("p");
+    name.textContent="店名: "+shop.name;
+
+    const address=document.createElement("p");
+    address.textContent="住所: "+shop.address;
+
+    const access=document.createElement("p");
+    access.textContent="アクセス: "+shop.access;
+
+    const genre=document.createElement("p");
+    genre.textContent="ジャンル: "+shop.genre.name;
+
+    const budget=document.createElement("p");
+    budget.textContent="予算: "+shop.budget.average;
+
+    const hr=document.createElement("hr");
+
+    container.appendChild(name);
+    container.appendChild(address);
+    container.appendChild(access);
+    container.appendChild(genre);
+    container.appendChild(budget);
+    container.appendChild(hr);
+
+    result.appendChild(container);
+  }
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
