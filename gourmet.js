@@ -15,7 +15,6 @@ function print(data) {
 function printDom(data) {
   const result = document.createElement("div");
   result.id = "result";
-
   document.body.appendChild(result);
 
   for (let shop of data.results.shop) {
@@ -51,18 +50,56 @@ function printDom(data) {
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
-
+let b = document.querySelector('#searchButton');
+b.addEventListener('click', searchButton);
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
-function sendRequest() {
+const genreMap = {
+  "居酒屋": "G001",
+  "ダイニングバー・バル": "G002",
+  "創作料理": "G003",
+  "和食": "G004",
+  "洋食": "G005",
+  "イタリアン・フレンチ": "G006",
+  "中華": "G007",
+  "焼肉・ホルモン": "G008",
+  "アジア・エスニック料理": "G009",
+  "各国料理": "G010",
+  "カラオケ・パーティ": "G011",
+  "バー・カクテル": "G012",
+  "ラーメン": "G013",
+  "カフェ・スイーツ": "G014",
+  "その他グルメ": "G015",
+  "お好み焼き・もんじゃ": "G016",
+  "韓国料理": "G017"
+};
 
+function searchButton() {
+  document.body.classList.add("afterSearch");
+  document.querySelector("#searchButton").textContent = "再検索";
+  let keyword = document.querySelector("#keyword").value;
+  let genreCode=genreMap[keyword];
+  let url='https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+genreCode+'.json';
+  axios.get(url)
+		.then(showResult)
+		.catch(showError)
+		.then(finish);
 }
+
+
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
-
+  let oldResult = document.querySelector("#result");
+  if(oldResult){
+  oldResult.remove();
+  }
+  let data=resp.data;
+  if(typeof data==="string") {
+    data=JSON.parse(data);
+  }
+  printDom(data);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
@@ -79,7 +116,7 @@ function finish() {
 // 以下はグルメのデータサンプル
 // 注意: 第5回までは以下を変更しないこと！
 // 注意2: 課題6-1 で以下をすべて削除すること
-let data = {
+/*let data = {
   "results": {
     "api_version": "1.26",
     "results_available": 52,
@@ -278,5 +315,4 @@ let data = {
       }
     ]
   }
-};
-
+};*/

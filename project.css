@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+
+h1{
+    font-family:"ころたん教漢";
+    font-size:90px;
+    margin-top:150px;
+}
+
+h2{
+    margin-top:10px;
+}
+
+/* 検索エリア */
+#searchArea {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  gap: 20px;
+}
+
+#searchButton{
+    width:190px;
+    height:45px;
+    font-size:20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+input{
+    width:300px;
+    height:30px;
+    font-size:16px;
+}
+
+/* 左上画像 */
+#leftImg {
+  position: absolute;
+  top: 400px;
+  left: 100px;
+  width: 150px;
+}
+
+/* 右上画像 */
+#rightImg {
+  position: absolute;
+  top: 400px;
+  right: 100px;
+  width: 150px;
+}
+
+/*検索後画像を非表示*/
+.afterSearch #leftImg,
+.afterSearch #rightImg{
+    display:none;
+}
+
+.afterSearch #title{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    margin: 0;
+    font-size: 40px;
+    z-index: 1000;
+    padding: 5px;
+}
+
+.afterSearch #subtitle{
+    position: fixed;
+    top: 10px;
+    left: 400px;
+    margin: 0;
+    z-index: 1000;
+    padding: 5px;
+}
+
+.afterSearch #searchArea{
+    position:fixed;
+    top:60px;
+    left:20px;
+
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:10px;
+
+    margin:0;
+    z-index:1000;
+}
+
+.afterSearch #searchButton{
+    width:70px;
+    height:35px;
+    font-size:16px;
+}
+
+.afterSearch #result{
+    margin-top:100px;
+}
+
+/* 検索結果 */
+#result {
+  margin-top: 140px;
+}
